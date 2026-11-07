@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="LahoreDash.vcxproj" />
+  <Project Path="LahoreDash.vcxproj" Id="444b0225-0dbf-46ee-8df2-5e9530950a04" />
 </Solution>

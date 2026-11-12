@@ -8,7 +8,17 @@ using namespace std;
 
 int main()
 {
+
 	sf::RenderWindow window(sf::VideoMode({ 800,600 }), "Lahore Dash");
+
+	sf::Texture
+		trackTexture;
+
+	if (!trackTexture.loadFromFile(
+		"assets/menu_background.jpeg"))
+	{
+		return 1;
+	}
 
 
 

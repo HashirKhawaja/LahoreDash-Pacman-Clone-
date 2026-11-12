@@ -43,5 +43,8 @@
     <Image Include="..\..\..\Downloads\player.png">
       <Filter>Source Files\assets</Filter>
     </Image>
+    <Image Include="..\..\..\Downloads\menu_background.jpeg">
+      <Filter>Source Files\assets</Filter>
+    </Image>
   </ItemGroup>
 </Project>

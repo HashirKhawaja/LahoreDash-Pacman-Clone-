@@ -4,21 +4,15 @@
 using namespace std;
 
 
-
+void backgroundimg(sf::RenderWindow& window);
 
 int main()
 {
 
 	sf::RenderWindow window(sf::VideoMode({ 800,600 }), "Lahore Dash");
 
-	sf::Texture
-		trackTexture;
 
-	if (!trackTexture.loadFromFile(
-		"assets/menu_background.jpeg"))
-	{
-		return 1;
-	}
+
 
 
 
@@ -29,9 +23,10 @@ int main()
 
 	Player player;
 
-
+	backgroundimg(window);
 	while (window.isOpen())
 	{
+		
 		window.clear(sf::Color(184, 201, 217));
 		player.draw(window);
 		window.draw(wall);

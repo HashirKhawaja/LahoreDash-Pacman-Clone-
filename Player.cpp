@@ -1,7 +1,7 @@
 #include "Player.h"
 
 
-Player::Player() : texture("C:\\Users\\hashi\\Downloads\\player.png") , shape(texture)
+Player::Player() : texture("assets/player.png"), shape(texture)
 {
 	shape.setScale({ 0.05f,0.05f });
 	shape.setPosition({ 50,50 });
@@ -13,11 +13,11 @@ void Player::handlemovement(sf::RectangleShape& wall)
 	float oldy = shape.getPosition().y;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
 	{
-		shape.move({ 0.25,0 });
+		shape.move({ 0.05,0 });
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
 	{
-		shape.move({ -0.25,0 });
+		shape.move({ -0.05,0 });
 	}
 	if (shape.getGlobalBounds().findIntersection(wall.getGlobalBounds()))
 	{
@@ -25,11 +25,11 @@ void Player::handlemovement(sf::RectangleShape& wall)
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
 	{
-		shape.move({ 0,-0.25 });
+		shape.move({ 0,-0.05 });
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
 	{
-		shape.move({ 0,0.25 });
+		shape.move({ 0,0.05 });
 	}
 	if (shape.getGlobalBounds().findIntersection(wall.getGlobalBounds()))
 	{

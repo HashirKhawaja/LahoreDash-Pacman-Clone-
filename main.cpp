@@ -18,7 +18,7 @@ int main()
 	if (!backgroundMusic.openFromFile("assets/Background_music.ogg"))
 	{
 		cout << "Background music not loaded!" << endl;
-		return 1;
+		return 0;
 	}
 
 	backgroundMusic.setLooping(true);

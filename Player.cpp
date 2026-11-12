@@ -1,7 +1,7 @@
 #include "Player.h"
 
 
-Player::Player() : texture("C:\\Users\\hashi\\Downloads\\player.png") , shape(texture)
+Player::Player() : texture("assets/player.png") , shape(texture)
 {
 	shape.setScale({ 0.05f,0.05f });
 	shape.setPosition({ 50,50 });

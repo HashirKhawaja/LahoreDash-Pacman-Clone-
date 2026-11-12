@@ -8,20 +8,6 @@ using namespace std;
 
 int main()
 {
-
-	sf::RenderWindow window(sf::VideoMode({ 800,600 }), "Lahore Dash");
-
-	sf::Texture
-		trackTexture;
-
-	if (!trackTexture.loadFromFile(
-		"assets/menu_background.jpeg"))
-	{
-		return 1;
-	}
-
-
-
 	sf::RectangleShape wall;
 	wall.setSize({ 100, 10 });
 	wall.setFillColor(sf::Color::Blue);
@@ -29,6 +15,7 @@ int main()
 
 	Player player;
 
+	void backgroundimg(sf::RenderWindow & window);
 
 	while (window.isOpen())
 	{

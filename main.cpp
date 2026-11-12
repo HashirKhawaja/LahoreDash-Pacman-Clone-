@@ -13,6 +13,18 @@ int main()
 	wall.setFillColor(sf::Color::Blue);
 	wall.setPosition({ 200, 300 });
 
+	sf::Music backgroundMusic;
+
+	if (!backgroundMusic.openFromFile("assets/Background_music.ogg"))
+	{
+		cout << "Background music not loaded!" << endl;
+		return 1;
+	}
+
+	backgroundMusic.setLooping(true);
+	backgroundMusic.setVolume(50);
+	backgroundMusic.play();
+
 	Player player;
 
 	void backgroundimg(sf::RenderWindow & window);

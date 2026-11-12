@@ -11,19 +11,26 @@ int main()
 
 	sf::RenderWindow window(sf::VideoMode({ 800,600 }), "Lahore Dash");
 
-
-
-
-
-
 	sf::RectangleShape wall;
 	wall.setSize({ 100, 10 });
 	wall.setFillColor(sf::Color::Blue);
 	wall.setPosition({ 200, 300 });
 
+	sf::Music backgroundMusic;
+
+	if (!backgroundMusic.openFromFile("assets/Background_music.ogg"))
+	{
+		cout << "Background music not loaded!" << endl;
+		return 0;
+	}
+
+	backgroundMusic.setLooping(true);
+	backgroundMusic.setVolume(50);
+	backgroundMusic.play();
+
 	Player player;
 
-	backgroundimg(window);
+backgroundimg(window);
 	while (window.isOpen())
 	{
 		

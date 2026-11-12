@@ -1,4 +1,4 @@
-#include <Sfml/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 void backgroundimg(sf::RenderWindow& window)
 {

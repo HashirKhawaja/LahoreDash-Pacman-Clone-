@@ -1,156 +1,71 @@
-Lahore Dash 
+# Lahore Dash
 
-Lahore Dash is a 2D game developed in C++ using SFML 3.1.0, inspired by the streets, culture and environment of Lahore.
+Lahore Dash is a student-developed 2D game written in C++ with SFML 3.1.0. Inspired by Lahore, the project is being built as a hands-on way to explore game development, from menus and player movement to collision handling, audio, and future enemy behaviour.
 
-The project focuses on building a playable 2D game using Object-Oriented Programming (OOP), with an emphasis on understanding game development fundamentals, including rendering, player movement, collision detection, enemy behaviour, animations and audio integration.
+The game is a work in progress. This README separates what is currently implemented from ideas planned for later development.
 
- Technologies Used
+## Technologies
 
-Language: C++
+- **Language:** C++
+- **Graphics and audio:** SFML 3.1.0
+- **IDE:** Visual Studio 2026
+- **Project files:** Visual Studio solution and project files (`LahoreDash.slnx`, `LahoreDash.vcxproj`)
 
-Graphics Library: SFML 3.1.0
+## Project structure
 
-IDE: Visual Studio 2026
+The following is the project-specific source and asset layout (third-party SFML headers and libraries are not expanded here):
 
-Build System: CMake
+```text
+.
+├── main.cpp
+├── menu.cpp
+├── Player.cpp
+├── Player.h
+├── Enemy.cpp
+├── Enemy.h
+├── LahoreDash.slnx
+├── LahoreDash.vcxproj
+├── assets/
+│   ├── Background_music.ogg
+│   ├── menu_background.jpeg
+│   └── player.png
+├── include/                 # Bundled dependency headers
+└── lib/                     # Bundled libraries and CMake package files
+```
 
-Project Structure
+`Enemy.cpp` and `Enemy.h` are present as placeholders; enemy functionality has not been implemented yet. The menu implementation is in `menu.cpp`.
 
-The project currently consists of four main source files:
+## Implemented features
 
-Lahore_Dash/
-│
-├── Main.cpp
-├── Menu.cpp / Menu.h
-├── Player.cpp / Player.h
-├── Enemy.cpp / Enemy.h
-│
-└── assets/
-    ├── menu_background.jpeg
-    ├── player.png
-    └── audio/
-        └── background_music
+- A main menu with a pixel-art background created with AI assistance.
+- A clickable **Start** button in the menu.
+- A player character displayed using the external image in `assets/player.png`.
+- Keyboard-controlled player movement.
+- Temporary wall collision handling and restrictions that keep the player within the screen boundaries.
+- Background music integrated from `assets/Background_music.ogg`.
 
-Note: The structure is representative; asset names and individual file extensions may change as development progresses.
+## Planned work
 
- Current Development Progress
+These items are not implemented yet and are part of the development roadmap:
 
-1. Main Menu
+- Build out the game environment and refine wall collision handling.
+- Implement enemy behaviour and interactions with the player.
+- Add player animations.
+- Add gameplay sound effects.
+- Expand the game with additional gameplay and interface elements as development continues.
 
-Created a main menu with a pixel-art visual style.
+## Learning objectives
 
-Used AI assistance to create the menu artwork.
+Lahore Dash is also a practical learning project. Its development provides experience with:
 
-Implemented a clickable Start button.
+- Organizing a C++ project into focused source files and classes.
+- Using SFML for rendering, input, and audio.
+- Loading and displaying image assets.
+- Handling keyboard input and updating player movement.
+- Exploring collision detection and screen boundaries.
+- Integrating audio into a real-time application.
+- Planning and building a game incrementally, distinguishing working features from future ideas.
 
-Established the initial interface through which players can enter the game.
+## Development status
 
-2. Player Implementation
-
-Created a dedicated Player class.
-
-Implemented player rendering using an external character image.
-
-Configured sprite scaling and positioning.
-
-Implemented player movement and keyboard controls.
-
-Added temporary wall collision handling.
-
-Implemented boundary restrictions to prevent the player from moving outside the intended game area.
-
-3. Enemy System
-
-Created a separate Enemy file to keep enemy functionality modular.
-
-Enemy implementation has not started yet.
-
-Enemy movement, behaviour and interaction with the player will be developed later.
-
-4. Audio Integration
-
-Successfully implemented background music.
-
-Additional sound effects will be introduced as development progresses.
-
-5. Graphics and Assets
-
-Integrated a pixel-art main menu.
-
-Added an external image for the player character.
-
-Character animations are planned for a later development stage.
-
- Development Roadmap
-
-The following features represent the planned direction of Lahore Dash.
-
-Gameplay
-
-Basic player movement.
-
-Temporary wall collision.
-
-Game boundary restrictions.
-
-Develop a complete maze environment.
-
-Implement proper wall collision detection.
-
-Develop enemy movement and behaviour.
-
-Implement player-enemy interactions.
-
-Introduce scoring and collectible items.
-
-Graphics and UI
-
-Pixel-art main menu.
-
-Clickable Start button.
-
-Player character image.
-
-Player movement animations.
-
-Enemy character sprites and animations.
-
-Additional UI elements.
-
-Audio
-
-Background music.
-
-Movement and interaction sound effects.
-
-Additional gameplay audio.
-
- Learning Objectives
-
-Lahore Dash is also a practical learning project focused on developing proficiency in:
-
-Object-Oriented Programming in C++.
-
-Classes, objects, constructors and member functions.
-
-SFML rendering and event handling.
-
-Textures, sprites and animations.
-
-Keyboard input and player movement.
-
-Collision detection and boundary restrictions.
-
-Game loops and real-time updates.
-
-Audio integration.
-
-Modular code organization and game architecture.
-
- Development Status
-
-Currently in active development.
-
-The project has progressed beyond its initial setup, with a functional main menu, player character, movement system, preliminary collision handling and background music.
-
-The next major stages involve developing the game environment, implementing the enemy system, improving collision detection and introducing character animations and additional gameplay mechanics.
+The project is actively being developed. The menu, basic player movement, preliminary collision and boundary handling, and background music are in place. Enemy gameplay, player animation, additional sound effects, and further game content remain future work.

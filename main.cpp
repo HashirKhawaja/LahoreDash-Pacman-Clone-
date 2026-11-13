@@ -6,6 +6,7 @@ using namespace std;
 
 
 void backgroundimg(sf::RenderWindow& window);
+void drawMap(sf::RenderWindow& window);
 
 int main()
 {
@@ -13,7 +14,7 @@ int main()
 	sf::RenderWindow window(sf::VideoMode({ 800,600 }), "Lahore Dash");
 
 	sf::RectangleShape wall;
-	wall.setSize({ 100, 10 });
+	wall.setSize({ 0.1, 0.1 });
 	wall.setFillColor(sf::Color::Blue);
 	wall.setPosition({ 200, 300 });
 
@@ -31,28 +32,41 @@ int main()
 
 	Player player;
 
-backgroundimg(window);
+	backgroundimg(window);
+
 	while (window.isOpen())
 	{
-		
+
 		window.clear(sf::Color(184, 201, 217));
+
+		drawMap(window);
 		player.draw(window);
 		window.draw(wall);
+
 		window.display();
+
 		while (auto event = window.pollEvent())
 		{
 			if (event->is<sf::Event::Closed>())
 			{
 				window.close();
 			}
-				
+
 		}
+
 		player.handlemovement(wall);
 
-
 	}
+
 	cout << "All done!";
 
+}
 
+void drawMap(sf::RenderWindow& window)
+{
+	sf::Texture texture1("assets/Map.jpeg");
+	sf::Sprite drawMap(texture1);
+	drawMap.setScale({ (800.0f / texture1.getSize().x),(600.0f / texture1.getSize().y) });
 
+	window.draw(drawMap);
 }

@@ -13,7 +13,7 @@ int main()
 	sf::RenderWindow window(sf::VideoMode({ 800,600 }), "Lahore Dash");
 
 	sf::RectangleShape wall;
-	wall.setSize({ 0.1, 0.1 });
+	wall.setSize({ 0.1f, 0.1f });
 	wall.setFillColor(sf::Color::Blue);
 	wall.setPosition({ 200, 300 });
 
@@ -65,4 +65,3 @@ int main()
 	cout << "All done!";
 
 }
-

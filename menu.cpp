@@ -1,5 +1,4 @@
 #include <SFML/Graphics.hpp>
-
 void backgroundimg(sf::RenderWindow& window)
 {
 	sf::Texture texture("assets/menu_background.jpeg");
@@ -9,7 +8,6 @@ void backgroundimg(sf::RenderWindow& window)
 	window.clear();
 	window.draw(background);
 	window.display();
-
 	while (!(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter)))
 	{
 		if (auto event = window.pollEvent())

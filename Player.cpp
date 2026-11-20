@@ -47,21 +47,21 @@ void Player::handlemovement(sf::RectangleShape& wall)
 
 		shape.setPosition({ shape.getPosition().x,oldy });
 	}
-	if (shape.getPosition().x > 750)
+	if (shape.getPosition().x > 780)
 	{
-		shape.setPosition({ 750,shape.getPosition().y });
+		shape.setPosition({ 780,shape.getPosition().y });
 	}
-	if (shape.getPosition().x < 0)
+	if (shape.getPosition().x < 10)
 	{
-		shape.setPosition({ 0,shape.getPosition().y });
+		shape.setPosition({ 10,shape.getPosition().y });
 	}
-	if (shape.getPosition().y > 540)
+	if (shape.getPosition().y > 570)
 	{
-		shape.setPosition({ shape.getPosition().x,540 });
+		shape.setPosition({ shape.getPosition().x,570 });
 	}
-	if (shape.getPosition().y < 0)
+	if (shape.getPosition().y < 10)
 	{
-		shape.setPosition({ shape.getPosition().x,0});
+		shape.setPosition({ shape.getPosition().x,10});
 	}
 
 }

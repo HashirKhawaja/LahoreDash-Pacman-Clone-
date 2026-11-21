@@ -1,7 +1,7 @@
 #include "Player.h"
 
 
-Player::Player() : texture("assets/player.png"), shape(texture)
+Player::Player() : texture("assets/player.png"), shape(texture), CollisionImage("assets/player.png")
 {
 	shape.setScale({ 0.04f,0.04f });
 	shape.setPosition({ 50,50 });
@@ -12,7 +12,6 @@ void Player::handlemovement(sf::RectangleShape& wall)
 {
 	float oldx = shape.getPosition().x;
 	float oldy = shape.getPosition().y;
-	sf::Clock clock;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
 	{
 		shape.setRotation(sf::degrees(0));
@@ -24,10 +23,6 @@ void Player::handlemovement(sf::RectangleShape& wall)
 		shape.setRotation(sf::degrees(0));
 		shape.setScale({ -0.04f,0.04f });
 		shape.move({ -0.15,0 });
-	}
-	if (shape.getGlobalBounds().findIntersection(wall.getGlobalBounds()))
-	{
-		shape.setPosition({ oldx,shape.getPosition().y });
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
 	{
@@ -42,11 +37,16 @@ void Player::handlemovement(sf::RectangleShape& wall)
 		shape.setScale({ 0.04f,0.04f });
 		shape.move({ 0,0.15 });
 	}
-	if (shape.getGlobalBounds().findIntersection(wall.getGlobalBounds()))
-	{
+	int x = shape.getPosition().x;
+	int y = shape.getPosition().y;
 
-		shape.setPosition({ shape.getPosition().x,oldy });
+	sf::Color pixel = CollisionImage.getPixel({ (unsigned int)x,(unsigned int)y });
+	if (pixel == sf::Color::Black)
+	{
+		shape.setPosition({ oldx,oldy });
+
 	}
+
 	if (shape.getPosition().x > 780)
 	{
 		shape.setPosition({ 780,shape.getPosition().y });

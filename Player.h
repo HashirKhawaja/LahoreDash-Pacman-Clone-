@@ -13,5 +13,6 @@ public:
 private:
 	sf::Texture texture;
 	sf::Sprite shape;
+	sf::Image CollisionImage;
 };
 

@@ -1,10 +1,10 @@
 #include "Player.h"
 
 
-Player::Player() : texture("assets/player.png"), shape(texture), CollisionImage("assets/player.png")
+Player::Player() : texture("assets/player.png"), shape(texture), CollisionImage("assets/CollisionMap.png")
 {
 	shape.setScale({ 0.04f,0.04f });
-	shape.setPosition({ 50,50 });
+	shape.setPosition({ 500,280 });
 	shape.setOrigin(shape.getLocalBounds().getCenter());
 }
 

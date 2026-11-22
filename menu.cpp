@@ -10,12 +10,17 @@ void backgroundimg(sf::RenderWindow& window)
 	window.display();
 	while (!(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter)))
 	{
+
 		if (auto event = window.pollEvent())
 		{
 			if (event->is<sf::Event::Closed>())
 			{
 				window.close();
 			}
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+		{
+			return;
 		}
 		window.clear();
 		window.draw(background);

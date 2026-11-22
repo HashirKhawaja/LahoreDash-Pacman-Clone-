@@ -49,7 +49,10 @@ int main()
 			}
 
 		}
-
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::P))
+		{
+			backgroundimg(window);
+		}
 		player.handlemovement(wall);
 
 		window.clear(sf::Color(184, 201, 217));

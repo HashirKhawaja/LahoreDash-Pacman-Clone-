@@ -1,9 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "Player.h"
-#include "Collectible.h"
-#include "Points.h"
-#include "Enemy.h"
 #include <iostream>
 using namespace std;
 
@@ -38,11 +35,6 @@ int main()
 	backgroundMusic.play();
 
 	Player player;
-	Enemy enemy1("assets/rickshaw_blue.png", 100, 200);
-	Enemy enemy2("assets/rickshaw_green.png", 700, 300);
-	Enemy enemy3("assets/rickshaw_red.png", 300, 500);
-	Collectible collectibles;
-	Points points;
 
 	backgroundimg(window);
 
@@ -62,42 +54,11 @@ int main()
 			backgroundimg(window);
 		}
 		player.handlemovement(wall);
-		sf::FloatRect playerBounds = player.getBounds();
-		enemy1.handlemovement(playerBounds);
-		enemy2.handlemovement(playerBounds);
-		enemy3.handlemovement(playerBounds);
-		if (enemy1.checkCollision(playerBounds) ||
-			enemy2.checkCollision(playerBounds) ||
-			enemy3.checkCollision(playerBounds))
-		{
-			player.loseLife();
-			if (player.getHearts() <= 0)
-			{
-				cout << "GAME OVER!" << endl;
-
-				window.close();
-				break;
-			}
-		}
-		collectibles.checkCollision(player.getBounds(), points);
-		if (collectibles.allCollected())
-		{
-			cout << "YOU WIN!" << endl;
-			cout << "Final Score: " << points.getScore() << endl;
-
-			window.close();
-			break;
-		}
 
 		window.clear(sf::Color(184, 201, 217));
 
 		window.draw(drawMap);
-		collectibles.draw(window);
-		enemy1.draw(window);
-		enemy2.draw(window);
-		enemy3.draw(window);
 		player.draw(window);
-		points.draw(window);
 		window.draw(wall);
 		window.display();
 

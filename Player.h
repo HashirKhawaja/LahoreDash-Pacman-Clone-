@@ -6,10 +6,8 @@ class Player
 {
 public:
 	Player();
-	sf::FloatRect getBounds() const;
+
 	void handlemovement(sf::RectangleShape& wall);
-	void loseLife();
-	int getHearts() const;
 	void draw(sf::RenderWindow& window);
 
 private:

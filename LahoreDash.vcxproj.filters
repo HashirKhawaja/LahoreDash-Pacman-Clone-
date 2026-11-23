@@ -33,13 +33,25 @@
     <ClCompile Include="Collision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Collectible.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Points.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Player.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Collectible.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Points.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +65,27 @@
       <Filter>Source Files\assets</Filter>
     </Image>
     <Image Include="assets\CollisionMap.png">
+      <Filter>Source Files\assets</Filter>
+    </Image>
+    <Image Include="assets\jalebi.png">
+      <Filter>Source Files\assets</Filter>
+    </Image>
+    <Image Include="assets\kulfi.png">
+      <Filter>Source Files\assets</Filter>
+    </Image>
+    <Image Include="assets\lassi.png">
+      <Filter>Source Files\assets</Filter>
+    </Image>
+    <Image Include="assets\samosa.png">
+      <Filter>Source Files\assets</Filter>
+    </Image>
+    <Image Include="assets\rickshaw_red.png">
+      <Filter>Source Files\assets</Filter>
+    </Image>
+    <Image Include="assets\rickshaw_blue.png">
+      <Filter>Source Files\assets</Filter>
+    </Image>
+    <Image Include="assets\rickshaw_green.png">
       <Filter>Source Files\assets</Filter>
     </Image>
   </ItemGroup>

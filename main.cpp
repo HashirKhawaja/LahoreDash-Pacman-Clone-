@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "Player.h"
+#include "Collectible.h"
+#include "Points.h"
 #include <iostream>
 using namespace std;
 
@@ -35,6 +37,8 @@ int main()
 	backgroundMusic.play();
 
 	Player player;
+	Collectible collectibles;
+	Points points;
 
 	backgroundimg(window);
 
@@ -54,11 +58,22 @@ int main()
 			backgroundimg(window);
 		}
 		player.handlemovement(wall);
+		collectibles.checkCollision(player.getBounds(), points);
+		if (collectibles.allCollected())
+		{
+			cout << "YOU WIN!" << endl;
+			cout << "Final Score: " << points.getScore() << endl;
+
+			window.close();
+			break;
+		}
 
 		window.clear(sf::Color(184, 201, 217));
 
 		window.draw(drawMap);
+		collectibles.draw(window);
 		player.draw(window);
+		points.draw(window);
 		window.draw(wall);
 
 		window.display();

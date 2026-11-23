@@ -7,6 +7,10 @@ Player::Player() : texture("assets/player.png"), shape(texture), CollisionImage(
 	shape.setPosition({ 500,280 });
 	shape.setOrigin(shape.getLocalBounds().getCenter());
 }
+sf::FloatRect Player::getBounds() const
+{
+	return shape.getGlobalBounds();
+}
 
 void Player::handlemovement(sf::RectangleShape& wall)
 {

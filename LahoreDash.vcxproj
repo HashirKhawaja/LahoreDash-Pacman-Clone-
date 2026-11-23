@@ -167,21 +167,32 @@ xcopy /y /d /e /i "$(ProjectDir)assets" "$(TargetDir)assets"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Collectible.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Points.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Collectible.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Points.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\CollisionMap.png" />
+    <Image Include="assets\jalebi.png" />
+    <Image Include="assets\kulfi.png" />
+    <Image Include="assets\lassi.png" />
     <Image Include="assets\Map.jpeg" />
     <Image Include="assets\menu_background.jpeg" />
     <Image Include="assets\player.png" />
+    <Image Include="assets\rickshaw_blue.png" />
+    <Image Include="assets\rickshaw_green.png" />
+    <Image Include="assets\rickshaw_red.png" />
+    <Image Include="assets\samosa.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\Background_music.ogg" />

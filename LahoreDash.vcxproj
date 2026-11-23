@@ -179,6 +179,7 @@ xcopy /y /d /e /i "$(ProjectDir)assets" "$(TargetDir)assets"</Command>
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\CollisionMap.png" />
+    <Image Include="assets\hearts.png" />
     <Image Include="assets\Map.jpeg" />
     <Image Include="assets\menu_background.jpeg" />
     <Image Include="assets\player.png" />

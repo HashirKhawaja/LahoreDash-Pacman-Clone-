@@ -55,6 +55,9 @@
     <Image Include="assets\CollisionMap.png">
       <Filter>Source Files\assets</Filter>
     </Image>
+    <Image Include="assets\hearts.png">
+      <Filter>Source Files\assets</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\Background_music.ogg">

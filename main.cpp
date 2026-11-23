@@ -60,7 +60,6 @@ int main()
 		window.draw(drawMap);
 		player.draw(window);
 		window.draw(wall);
-
 		window.display();
 
 	}

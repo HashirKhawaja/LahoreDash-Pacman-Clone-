@@ -4,7 +4,7 @@
 Player::Player() : texture("assets/player.png"), shape(texture), CollisionImage("assets/CollisionMap.png")
 {
 	shape.setScale({ 0.04f,0.04f });
-	shape.setPosition({ 500,280 });
+	shape.setPosition({ 35,385 });
 	shape.setOrigin(shape.getLocalBounds().getCenter());
 }
 sf::FloatRect Player::getBounds() const

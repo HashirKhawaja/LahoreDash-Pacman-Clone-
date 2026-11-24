@@ -194,6 +194,8 @@ xcopy /y /d /e /i "$(ProjectDir)assets" "$(TargetDir)assets"</Command>
     <Image Include="assets\rickshaw_green.png" />
     <Image Include="assets\rickshaw_red.png" />
     <Image Include="assets\samosa.png" />
+    <Image Include="C:\Users\dell\Downloads\Lose_Back.jfif" />
+    <Image Include="C:\Users\dell\Downloads\Win_Back.jfif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\Background_music.ogg" />

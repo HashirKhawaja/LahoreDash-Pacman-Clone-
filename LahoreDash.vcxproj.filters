@@ -91,6 +91,12 @@
     <Image Include="assets\rickshaw_green.png">
       <Filter>Source Files\assets</Filter>
     </Image>
+    <Image Include="C:\Users\dell\Downloads\Lose_Back.jfif">
+      <Filter>Source Files\assets</Filter>
+    </Image>
+    <Image Include="C:\Users\dell\Downloads\Win_Back.jfif">
+      <Filter>Source Files\assets</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\Background_music.ogg">

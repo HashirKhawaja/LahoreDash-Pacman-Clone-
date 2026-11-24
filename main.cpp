@@ -65,9 +65,7 @@ int main()
 		enemy1.handlemovement(playerBounds);
 		enemy2.handlemovement(playerBounds);
 		enemy3.handlemovement(playerBounds);
-		if (enemy1.checkCollision(playerBounds) ||
-			enemy2.checkCollision(playerBounds) ||
-			enemy3.checkCollision(playerBounds))
+		if (enemy1.checkCollision(playerBounds) || enemy2.checkCollision(playerBounds) || enemy3.checkCollision(playerBounds))
 		{
 			cout << "GAME OVER!" << endl;
 
@@ -94,7 +92,6 @@ int main()
 		player.draw(window);
 		points.draw(window);
 		window.draw(wall);
-
 		window.display();
 
 	}

@@ -1,7 +1,5 @@
-
 #include "Collectible.h"
 #include "Points.h"
-
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -160,9 +158,7 @@ void Collectible::placeCollectibles()
         else
             type = 0;       // 27 Jalebis
 
-        items[itemCount].position = {
-            (float)x, (float)y
-        };
+        items[itemCount].position = { (float)x, (float)y };
 
         items[itemCount].textureIndex = type;
         items[itemCount].pointValue = values[type];
@@ -237,7 +233,7 @@ bool Collectible::allCollected() const
 // Draw collectibles on the screen.
 void Collectible::draw(sf::RenderWindow& window) const
 {
-    float DESIRED_SIZE = 25;
+    float DESIRED_SIZE = 30;
 
     for (int i = 0; i < itemCount; i++)
     {

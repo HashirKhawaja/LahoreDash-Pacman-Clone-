@@ -3,9 +3,7 @@
 #include <iostream>
 
 
-Enemy::Enemy(const char* imagePath, float startX, float startY)
-    : texture(imagePath), shape(texture),
-    CollisionImage("assets/CollisionMap.png")
+Enemy::Enemy(const char* imagePath, float startX, float startY) : texture(imagePath), shape(texture), CollisionImage("assets/CollisionMap.png")
 {
     shape.setScale({ 0.08f, 0.08f });
 
@@ -240,7 +238,7 @@ void Enemy::handlemovement(const sf::FloatRect& playerBounds)
     }
 
     // Move towards the next cell.
-    float speed = 0.14f;
+    float speed = 0.19f;
 
     float centerX = startX * GRID_SIZE + 5;
     float centerY = startY * GRID_SIZE + 5;

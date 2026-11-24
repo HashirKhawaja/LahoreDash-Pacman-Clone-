@@ -78,3 +78,8 @@ void Player::draw(sf::RenderWindow& window)
 {
 	window.draw(shape);
 }
+
+void Player::resetPosition()
+{
+	shape.setPosition({ 35,385 });
+}

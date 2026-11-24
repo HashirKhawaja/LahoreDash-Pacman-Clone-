@@ -42,6 +42,39 @@ int main()
 	Enemy enemy3("assets/rickshaw_red.png", 300, 500);
 	Collectible collectibles;
 	Points points;
+	// Load hearts
+	sf::Texture heartsTexture("assets/hearts.png");
+
+	sf::Sprite heart1(heartsTexture);
+	sf::Sprite heart2(heartsTexture);
+	sf::Sprite heart3(heartsTexture);
+
+	// Divide the image into three hearts
+	int heartWidth = heartsTexture.getSize().x / 3;
+	int heartHeight = heartsTexture.getSize().y;
+
+	heart1.setTextureRect(sf::IntRect(
+		{ 0, 0 }, { heartWidth, heartHeight }));
+
+	heart2.setTextureRect(sf::IntRect(
+		{ heartWidth, 0 }, { heartWidth, heartHeight }));
+
+	heart3.setTextureRect(sf::IntRect(
+		{ heartWidth * 2, 0 }, { heartWidth, heartHeight }));
+
+	// Set heart sizes
+	heart1.setScale({ 0.055f, 0.055f });
+	heart2.setScale({ 0.055f, 0.055f });
+	heart3.setScale({ 0.055f, 0.055f });
+
+	// Position hearts
+	heart1.setPosition({ 640, 10 });
+	heart2.setPosition({ 690, 10 });
+	heart3.setPosition({ 740, 10 });
+
+	// Lives
+	int lives = 3;
+	int protectionFrames = 0;
 
 	backgroundimg(window);
 
@@ -65,12 +98,34 @@ int main()
 		enemy1.handlemovement(playerBounds);
 		enemy2.handlemovement(playerBounds);
 		enemy3.handlemovement(playerBounds);
-		if (enemy1.checkCollision(playerBounds) || enemy2.checkCollision(playerBounds) || enemy3.checkCollision(playerBounds))
+		// Reduce protection time
+		if (protectionFrames > 0)
 		{
-			cout << "GAME OVER!" << endl;
+			protectionFrames--;
+		}
 
-			window.close();
-			break;
+		// Check enemy collision
+		else if (enemy1.checkCollision(playerBounds) ||
+			enemy2.checkCollision(playerBounds) ||
+			enemy3.checkCollision(playerBounds))
+		{
+			lives--;
+
+			cout << "Lives remaining: " << lives << endl;
+
+			// Return player to starting position
+			player.resetPosition();
+
+			// Temporary protection
+			protectionFrames = 90;
+
+			if (lives == 0)
+			{
+				cout << "GAME OVER!" << endl;
+
+				window.close();
+				break;
+			}
 		}
 
 		collectibles.checkCollision(player.getBounds(), points);
@@ -91,6 +146,15 @@ int main()
 		enemy3.draw(window);
 		player.draw(window);
 		points.draw(window);
+		// Display remaining hearts
+		if (lives >= 1)
+			window.draw(heart1);
+
+		if (lives >= 2)
+			window.draw(heart2);
+
+		if (lives >= 3)
+			window.draw(heart3);
 		window.draw(wall);
 		window.display();
 

@@ -10,6 +10,7 @@ public:
 	sf::FloatRect getBounds() const;
 	void handlemovement(sf::RectangleShape& wall);
 	void draw(sf::RenderWindow& window);
+	void resetPosition();
 
 private:
 	sf::Texture texture;

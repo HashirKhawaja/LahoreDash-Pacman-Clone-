@@ -114,7 +114,7 @@ int main()
 			cout << "Lives remaining: " << lives << endl;
 
 			// Return player to starting position
-			player.resetPosition();
+			player.resetPosition(lives);
 
 			// Temporary protection
 			protectionFrames = 90;

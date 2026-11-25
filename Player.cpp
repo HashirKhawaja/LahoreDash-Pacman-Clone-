@@ -79,7 +79,15 @@ void Player::draw(sf::RenderWindow& window)
 	window.draw(shape);
 }
 
-void Player::resetPosition()
+void Player::resetPosition(int lives)
 {
-	shape.setPosition({ 35,385 });
+	if (lives == 2)
+	{
+		shape.setPosition({ 745,128 });
+	}
+
+	else if (lives == 1)
+	{
+		shape.setPosition({ 670,500 });
+	}
 }

@@ -1,4 +1,8 @@
 #include <SFML/Graphics.hpp>
+#include <fstream>
+#include <string>
+using namespace std;
+
 void backgroundimg(sf::RenderWindow& window)
 {
 	sf::Texture texture("assets/menu_background.jpeg");
@@ -6,6 +10,14 @@ void backgroundimg(sf::RenderWindow& window)
 	background.setScale({ (800.0f / texture.getSize().x),(600.0f / texture.getSize().y) });
 
 	sf::Font font("C:/Windows/Fonts/arial.ttf");
+    
+    int highScore = 0;
+    ifstream inputFile("highscore.txt");
+    if (inputFile.is_open())
+    {
+        inputFile >> highScore;
+        inputFile.close();
+    }
 
 	sf::RectangleShape startButton({ 220, 50 });
 	sf::RectangleShape highScoreButton({ 220, 50 });
@@ -32,6 +44,13 @@ void backgroundimg(sf::RenderWindow& window)
 	sf::Text highScoreText(font, "HIGH SCORE");
 	sf::Text quitText(font, "QUIT");
 
+    sf::Text scoreDisplay(font, "HIGH SCORE: " + to_string(highScore));
+    scoreDisplay.setCharacterSize(25);
+    scoreDisplay.setFillColor(sf::Color(255, 220, 130));
+    scoreDisplay.setOrigin(scoreDisplay.getLocalBounds().getCenter());
+    scoreDisplay.setPosition({ 510, 300 });
+    bool showHighScore = false;
+
 	startText.setCharacterSize(23);
 	highScoreText.setCharacterSize(23);
 	quitText.setCharacterSize(23);
@@ -48,10 +67,6 @@ void backgroundimg(sf::RenderWindow& window)
 	highScoreText.setPosition({ 510, 430 });
 	quitText.setPosition({ 510, 495 });
 
-	window.clear();
-	window.draw(background);
-	window.display();
-	
     while (window.isOpen())
     {
         while (auto event = window.pollEvent())
@@ -72,21 +87,21 @@ void backgroundimg(sf::RenderWindow& window)
                     {
                         return;
                     }
+                    if (highScoreButton.getGlobalBounds().contains(mousePosition))
+                    {
+                        showHighScore = !showHighScore;
+                    }
                 }
             }
         }
 
-        // Press Enter to start
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter))
         {
             return;
         }
 
-        // Draw menu
         window.clear();
-
         window.draw(background);
-
         window.draw(startButton);
         window.draw(highScoreButton);
         window.draw(quitButton);
@@ -94,6 +109,10 @@ void backgroundimg(sf::RenderWindow& window)
         window.draw(startText);
         window.draw(highScoreText);
         window.draw(quitText);
+        if (showHighScore)
+        {
+            window.draw(scoreDisplay);
+        }
 
         window.display();
     }

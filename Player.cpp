@@ -20,30 +20,30 @@ void Player::handlemovement(sf::RectangleShape& wall)
 	{
 		shape.setRotation(sf::degrees(0));
 		shape.setScale({ 0.04f,0.04f });
-		shape.move({ 0.15f,0 });
-		shape.move({ 0.20f,0 });
+		shape.move({ 0.19f,0 });
+		shape.move({ 0.19f,0 });
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
 	{
 		shape.setRotation(sf::degrees(0));
 		shape.setScale({ -0.04f,0.04f });
-		shape.move({ -0.15,0 });
-		shape.move({ -0.20,0 });
+		shape.move({ -0.19,0 });
+		shape.move({ -0.19,0 });
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
 	{
 		shape.setScale({ 0.04f,0.04f });
 		shape.setRotation(sf::degrees(-90));
 
-		shape.move({ 0,-0.15 });
-		shape.move({ 0,-0.20 });
+		shape.move({ 0,-0.19 });
+		shape.move({ 0,-0.19 });
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
 	{
 		shape.setRotation(sf::degrees(90));
 		shape.setScale({ 0.04f,0.04f });
-		shape.move({ 0,0.15 });
-		shape.move({ 0,0.20 });
+		shape.move({ 0,0.19 });
+		shape.move({ 0,0.19 });
 	}
 	int x = shape.getPosition().x;
 	int y = shape.getPosition().y;

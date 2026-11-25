@@ -44,23 +44,16 @@ int main()
 	Points points;
 	// Load hearts
 	sf::Texture heartsTexture("assets/hearts.png");
-
 	sf::Sprite heart1(heartsTexture);
 	sf::Sprite heart2(heartsTexture);
 	sf::Sprite heart3(heartsTexture);
-
 	// Divide the image into three hearts
 	int heartWidth = heartsTexture.getSize().x / 3;
 	int heartHeight = heartsTexture.getSize().y;
 
-	heart1.setTextureRect(sf::IntRect(
-		{ 0, 0 }, { heartWidth, heartHeight }));
-
-	heart2.setTextureRect(sf::IntRect(
-		{ heartWidth, 0 }, { heartWidth, heartHeight }));
-
-	heart3.setTextureRect(sf::IntRect(
-		{ heartWidth * 2, 0 }, { heartWidth, heartHeight }));
+	heart1.setTextureRect(sf::IntRect( { 0, 0 }, { heartWidth, heartHeight }));
+	heart2.setTextureRect(sf::IntRect( { heartWidth, 0 }, { heartWidth, heartHeight }));
+	heart3.setTextureRect(sf::IntRect( { heartWidth * 2, 0 }, { heartWidth, heartHeight }));
 
 	// Set heart sizes
 	heart1.setScale({ 0.055f, 0.055f });
@@ -76,9 +69,25 @@ int main()
 	int lives = 3;
 	int protectionFrames = 0;
 
+	// Load win background
+	sf::Texture winTexture("assets/Win_Back.jfif");
+	sf::Sprite winBackground(winTexture);
+
+	// Load lose background
+	sf::Texture loseTexture("assets/Lose_Back.jfif");
+	sf::Sprite loseBackground(loseTexture);
+
+	// Resize backgrounds to window size
+	winBackground.setScale({ 800.0f / winTexture.getSize().x, 600.0f / winTexture.getSize().y });
+	loseBackground.setScale({ 800.0f / loseTexture.getSize().x, 600.0f / loseTexture.getSize().y });
+
+	// Game status
+	bool gameWon = false;
+	bool gameLost = false;
+
 	backgroundimg(window);
 
-	while (window.isOpen())
+	while (window.isOpen() && !gameWon && !gameLost)
 	{
 
 		while (auto event = window.pollEvent())
@@ -105,9 +114,7 @@ int main()
 		}
 
 		// Check enemy collision
-		else if (enemy1.checkCollision(playerBounds) ||
-			enemy2.checkCollision(playerBounds) ||
-			enemy3.checkCollision(playerBounds))
+		else if (enemy1.checkCollision(playerBounds) || enemy2.checkCollision(playerBounds) || enemy3.checkCollision(playerBounds))
 		{
 			lives--;
 
@@ -123,7 +130,7 @@ int main()
 			{
 				cout << "GAME OVER!" << endl;
 
-				window.close();
+				gameLost = true;
 				break;
 			}
 		}
@@ -134,7 +141,7 @@ int main()
 			cout << "YOU WIN!" << endl; 
 			cout << "Final Score: " << points.getScore() << endl;
 
-			window.close();
+			gameWon = true;
 			break;
 		}
 
@@ -158,6 +165,44 @@ int main()
 		window.draw(wall);
 		window.display();
 
+	}
+
+	// Display WIN screen
+	if (gameWon)
+	{
+		while (window.isOpen())
+		{
+			while (auto event = window.pollEvent())
+			{
+				if (event->is<sf::Event::Closed>())
+					window.close();
+			}
+
+			window.clear();
+
+			window.draw(winBackground);
+
+			window.display();
+		}
+	}
+
+	// Display LOSE screen
+	else if (gameLost)
+	{
+		while (window.isOpen())
+		{
+			while (auto event = window.pollEvent())
+			{
+				if (event->is<sf::Event::Closed>())
+					window.close();
+			}
+
+			window.clear();
+
+			window.draw(loseBackground);
+
+			window.display();
+		}
 	}
 
 	cout << "All done!";

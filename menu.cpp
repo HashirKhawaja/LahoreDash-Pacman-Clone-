@@ -51,34 +51,53 @@ void backgroundimg(sf::RenderWindow& window)
 	window.clear();
 	window.draw(background);
 	window.display();
-	while (!(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter)))
-	{
+	
+    while (window.isOpen())
+    {
+        while (auto event = window.pollEvent())
+        {
+            if (event->is<sf::Event::Closed>())
+            {
+                window.close();
+                return;
+            }
 
-		if (auto event = window.pollEvent())
-		{
-			if (event->is<sf::Event::Closed>())
-			{
-				window.close();
-			}
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
-		{
-			return;
-		}
-		window.clear();
-		window.draw(background);
+            if (const auto* mouseButton = event->getIf<sf::Event::MouseButtonPressed>())
+            {
+                if (mouseButton->button == sf::Mouse::Button::Left)
+                {
+                    sf::Vector2f mousePosition = window.mapPixelToCoords(mouseButton->position);
 
-		window.draw(startButton);
-		window.draw(highScoreButton);
-		window.draw(quitButton);
+                    if (startButton.getGlobalBounds().contains(mousePosition))
+                    {
+                        return;
+                    }
+                }
+            }
+        }
 
-		window.draw(startText);
-		window.draw(highScoreText);
-		window.draw(quitText);
+        // Press Enter to start
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter))
+        {
+            return;
+        }
 
-		window.display();
-	}
-	return;
+        // Draw menu
+        window.clear();
 
+        window.draw(background);
+
+        window.draw(startButton);
+        window.draw(highScoreButton);
+        window.draw(quitButton);
+
+        window.draw(startText);
+        window.draw(highScoreText);
+        window.draw(quitText);
+
+        window.display();
+    }
+
+    return;
 
 }

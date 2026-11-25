@@ -3,35 +3,26 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+using namespace std;
 
-Collectible::Collectible()
-    : collisionMap("assets/CollisionMap.png")
+Collectible::Collectible() : collisionMap("assets/CollisionMap.png")
 {
-    const char* assetPaths[4] =
-    {
-        "assets/jalebi.png",
-        "assets/samosa.png",
-        "assets/kulfi.png",
-        "assets/lassi.png"
-    };
+    const char* assetPaths[4] = { "assets/jalebi.png", "assets/samosa.png", "assets/kulfi.png", "assets/lassi.png" };
 
     for (int i = 0; i < 4; i++)
     {
         if (!textures[i].loadFromFile(assetPaths[i]))
         {
-            std::cout << "Could not load: "
-                << assetPaths[i] << std::endl;
+            cout << "Could not load: " << assetPaths[i] << endl;
         }
     }
 
-    std::srand(std::time(nullptr));
-
+    srand(std::time(nullptr));
     placeCollectibles();
 }
 
-
 // Check whether a pixel is a path.
-bool Collectible::isPathPixel(int x, int y) const
+bool Collectible :: isPathPixel(int x, int y) const
 {
     if (x < 0 || y < 0)
         return false;
@@ -43,8 +34,7 @@ bool Collectible::isPathPixel(int x, int y) const
 
     sf::Vector2u mapSize = collisionMap.getSize();
 
-    if (pixelPosition.x >= mapSize.x ||
-        pixelPosition.y >= mapSize.y)
+    if (pixelPosition.x >= mapSize.x || pixelPosition.y >= mapSize.y)
         return false;
 
     if (collisionMap.getPixel(pixelPosition) == sf::Color::Black)
@@ -52,7 +42,6 @@ bool Collectible::isPathPixel(int x, int y) const
 
     return true;
 }
-
 
 // Check whether the position is safe for a collectible.
 bool Collectible::isWalkable(int x, int y) const
@@ -75,7 +64,6 @@ bool Collectible::isWalkable(int x, int y) const
     return true;
 }
 
-
 // Place collectibles randomly across the map.
 void Collectible::placeCollectibles()
 {
@@ -83,13 +71,12 @@ void Collectible::placeCollectibles()
 
     if (mapSize.x < 40 || mapSize.y < 40)
     {
-        std::cout << "Collision map is too small." << std::endl;
+        cout << "Collision map is too small." << endl;
         return;
     }
 
     int minX = 18;
     int minY = 18;
-
     int maxX = 780;
     int maxY = 580;
 
@@ -103,7 +90,6 @@ void Collectible::placeCollectibles()
         return;
 
     int values[4] = { 10, 15, 20, 25 };
-
     int attempts = 0;
 
     while (itemCount < MAX_COLLECTIBLES && attempts < 50000)
@@ -132,8 +118,7 @@ void Collectible::placeCollectibles()
             float distanceX = x - items[i].position.x;
             float distanceY = y - items[i].position.y;
 
-            if (distanceX * distanceX +
-                distanceY * distanceY < 44 * 44)
+            if (distanceX * distanceX + distanceY * distanceY < 44 * 44)
             {
                 tooClose = true;
                 break;
@@ -159,25 +144,21 @@ void Collectible::placeCollectibles()
             type = 0;       // 27 Jalebis
 
         items[itemCount].position = { (float)x, (float)y };
-
         items[itemCount].textureIndex = type;
         items[itemCount].pointValue = values[type];
         items[itemCount].collected = false;
-
         itemCount++;
     }
 
     if (itemCount < MAX_COLLECTIBLES)
     {
-        std::cout << "Only " << itemCount
-            << " collectibles were placed." << std::endl;
+        cout << "Only " << itemCount << " collectibles were placed." << endl;
     }
 }
 
 
 // Check collision with the player.
-void Collectible::checkCollision(
-    const sf::FloatRect& playerBounds, Points& points)
+void Collectible::checkCollision(const sf::FloatRect &playerBounds, Points &points)
 {
     float playerLeft = playerBounds.position.x;
     float playerTop = playerBounds.position.y;
@@ -198,11 +179,7 @@ void Collectible::checkCollision(
         float itemTop = items[i].position.y - ITEM_HALF_SIZE;
         float itemBottom = items[i].position.y + ITEM_HALF_SIZE;
 
-        bool collision =
-            playerRight >= itemLeft &&
-            playerLeft <= itemRight &&
-            playerBottom >= itemTop &&
-            playerTop <= itemBottom;
+        bool collision = playerRight >= itemLeft && playerLeft <= itemRight && playerBottom >= itemTop && playerTop <= itemBottom;
 
         if (collision)
         {
@@ -255,13 +232,9 @@ void Collectible::draw(sf::RenderWindow& window) const
             largestSide = textureSize.y;
 
         float scale = DESIRED_SIZE / largestSide;
-
         sprite.setScale({ scale, scale });
-
         sprite.setOrigin(sprite.getLocalBounds().getCenter());
-
         sprite.setPosition(items[i].position);
-
         window.draw(sprite);
     }
 }

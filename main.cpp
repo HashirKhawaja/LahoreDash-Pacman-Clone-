@@ -166,6 +166,11 @@ int main()
 		window.display();
 
 	}
+	// Save high score when game finishes
+	if (gameWon || gameLost)
+	{
+		points.saveHighScore();
+	}
 
 	// Display WIN screen
 	if (gameWon)

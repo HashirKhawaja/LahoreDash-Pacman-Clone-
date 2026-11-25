@@ -1,12 +1,13 @@
-
+#include <iostream>
+#include <fstream>
 #include "Points.h"
 #include <string>
+using namespace std;
 
 Points::Points()
 {
     score = 0;
 }
-
 
 // Add points.
 void Points::addPoints(int amount)
@@ -113,5 +114,33 @@ void Points::draw(sf::RenderWindow& window) const
         drawDigit(window, digit, position);
 
         x += 25;
+    }
+}
+
+void Points::saveHighScore() const
+{
+    int highScore = 0;
+
+    // Read previous high score
+    ifstream inputFile("highscore.txt");
+
+    if (inputFile.is_open())
+    {
+        inputFile >> highScore;
+        inputFile.close();
+    }
+
+    // Compare current score with previous high score
+    if (score > highScore)
+    {
+        ofstream outputFile("highscore.txt");
+
+        if (outputFile.is_open())
+        {
+            outputFile << score;
+            outputFile.close();
+
+            cout << "NEW HIGH SCORE!" << endl;
+        }
     }
 }

@@ -200,6 +200,9 @@ xcopy /y /d /e /i "$(ProjectDir)assets" "$(TargetDir)assets"</Command>
   <ItemGroup>
     <None Include="assets\Background_music.ogg" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="highscore.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -103,4 +103,7 @@
       <Filter>Source Files\assets</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="highscore.txt" />
+  </ItemGroup>
 </Project>

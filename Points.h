@@ -12,6 +12,7 @@ public:
     void reset();
     int getScore() const;
     void draw(sf::RenderWindow& window) const;
+    void saveHighScore() const;
 
 private:
     int score;

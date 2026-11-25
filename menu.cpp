@@ -91,6 +91,11 @@ void backgroundimg(sf::RenderWindow& window)
                     {
                         showHighScore = !showHighScore;
                     }
+                    if (quitButton.getGlobalBounds().contains(mousePosition))
+                    {
+                        window.close();
+                        return;
+                    }
                 }
             }
         }

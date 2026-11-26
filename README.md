@@ -1,71 +1,130 @@
-# Lahore Dash
+# 🕌 Lahore Dash – Pac-Man Clone
 
-Lahore Dash is a student-developed 2D game written in C++ with SFML 3.1.0. Inspired by Lahore, the project is being built as a hands-on way to explore game development, from menus and player movement to collision handling, audio, and future enemy behaviour.
+A Lahore-themed Pac-Man inspired arcade game developed in **C++** using **SFML 3.0**. Instead of the traditional Pac-Man world, players explore the streets of the historic Walled City of Lahore, collecting delicious local treats while avoiding enemies.
 
-The game is a work in progress. This README separates what is currently implemented from ideas planned for later development.
+---
 
-## Technologies
+## 🎮 About the Game
 
-- **Language:** C++
-- **Graphics and audio:** SFML 3.1.0
-- **IDE:** Visual Studio 2026
-- **Project files:** Visual Studio solution and project files (`LahoreDash.slnx`, `LahoreDash.vcxproj`)
+Lahore Dash is a university Programming Fundamentals project developed at **FAST-NUCES Lahore**. The game recreates the classic Pac-Man experience with a unique Pakistani cultural theme.
 
-## Project structure
+Players navigate through a maze inspired by Lahore's Walled City, collect **Jalebis**, activate **Lassi Power-Ups**, and avoid enemy **Rickshaws** while trying to achieve the highest possible score.
 
-The following is the project-specific source and asset layout (third-party SFML headers and libraries are not expanded here):
+---
+
+## ✨ Features
+
+- 🕌 Lahore Walled City inspired maze
+- 🍩 Jalebi collectibles
+- 🥛 Lassi power-up system
+- 🚖 Rickshaw enemies with AI movement
+- ❤️ Lives and scoring system
+- 🎵 Background music and sound effects
+- 🏆 High score tracking
+- 📋 Interactive main menu
+- ⏸️ Pause and Game Over screens
+- 🎨 Custom graphics using SFML
+
+---
+
+## 🛠 Built With
+
+- C++
+- SFML 3.0
+- Visual Studio 2022
+
+---
+
+## 📂 Project Structure
 
 ```text
-.
-├── main.cpp
-├── menu.cpp
-├── Player.cpp
-├── Player.h
-├── Enemy.cpp
-├── Enemy.h
-├── LahoreDash.slnx
-├── LahoreDash.vcxproj
+LahoreDash/
+│
 ├── assets/
-│   ├── Background_music.ogg
-│   ├── menu_background.jpeg
-│   └── player.png
-├── include/                 # Bundled dependency headers
-└── lib/                     # Bundled libraries and CMake package files
+│   ├── images
+│   ├── fonts
+│   ├── audio
+│   └── textures
+│
+├── src/
+│   ├── Player.cpp
+│   ├── Enemy.cpp
+│   ├── Collectibles.cpp
+│   ├── Menu.cpp
+│   ├── Game.cpp
+│   └── Main.cpp
+│
+├── include/
+│
+└── README.md
 ```
 
-`Enemy.cpp` and `Enemy.h` are present as placeholders; enemy functionality has not been implemented yet. The menu implementation is in `menu.cpp`.
+---
 
-## Implemented features
+## 🎮 Controls
 
-- A main menu with a pixel-art background created with AI assistance.
-- A clickable **Start** button in the menu.
-- A player character displayed using the external image in `assets/player.png`.
-- Keyboard-controlled player movement.
-- Temporary wall collision handling and restrictions that keep the player within the screen boundaries.
-- Background music integrated from `assets/Background_music.ogg`.
+| Key | Action |
+|------|--------|
+| ⬆️ | Move Up |
+| ⬇️ | Move Down |
+| ⬅️ | Move Left |
+| ➡️ | Move Right |
+| P | Pause |
+| Esc | escape |
 
-## Planned work
+---
 
-These items are not implemented yet and are part of the development roadmap:
+## 🚀 Installation
 
-- Build out the game environment and refine wall collision handling.
-- Implement enemy behaviour and interactions with the player.
-- Add player animations.
-- Add gameplay sound effects.
-- Expand the game with additional gameplay and interface elements as development continues.
+### Clone the repository
 
-## Learning objectives
+```bash
+git clone https://github.com/HashirKhawaja/LahoreDash-Pacman-Clone.git
+```
 
-Lahore Dash is also a practical learning project. Its development provides experience with:
+### Open Project
 
-- Organizing a C++ project into focused source files and classes.
-- Using SFML for rendering, input, and audio.
-- Loading and displaying image assets.
-- Handling keyboard input and updating player movement.
-- Exploring collision detection and screen boundaries.
-- Integrating audio into a real-time application.
-- Planning and building a game incrementally, distinguishing working features from future ideas.
+Open the solution in **Visual Studio 2022**.
 
-## Development status
+### Requirements
 
-The project is actively being developed. The menu, basic player movement, preliminary collision and boundary handling, and background music are in place. Enemy gameplay, player animation, additional sound effects, and further game content remain future work.
+- Visual Studio 2022
+- SFML 3.0
+- C++17 or newer
+
+Build and run the project.
+
+---
+
+## 👨‍💻 Team Members
+
+| Name | Role |
+|------|------|
+| Hafiz Abdul Raheem Khan | Game Logic & Development |
+| Hashir Naveed Khawaja | Core Development |
+| Ali Hamza | Main Menu, Background Screen & UI |
+
+---
+
+## 📈 Future Improvements
+
+- Save game functionality
+- Leaderboard
+- Settings menu
+- Full-screen mode
+
+---
+
+## 📚 Academic Project
+
+This project was developed as part of the **Programming Fundamentals (CS1002)** course at **FAST National University of Computer and Emerging Sciences (FAST-NUCES), Lahore**.
+
+---
+
+## 📄 License
+
+This project is created for educational purposes only.
+
+Inspired by the classic Pac-Man game by Bandai Namco.
+
+---
